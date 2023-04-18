@@ -4,11 +4,15 @@ import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.options = ['good', 'neutral', 'bad'];
+  }
   static defaultProps = {
     initialValue: 0,
   };
 
-    state = {
+  state = {
     good: this.props.initialValue,
     neutral: this.props.initialValue,
     bad: this.props.initialValue,
@@ -36,7 +40,7 @@ class App extends Component {
       <div className="mainContainer">
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={['good', 'neutral', 'bad']}
+            options={this.options}
             onLeaveFeedback={this.onLeaveFeedback}
           />
         </Section>
